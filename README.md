@@ -31,10 +31,10 @@ If you find this useful, consider supporting its development. Your contributions
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/ashrafalnas)
 [![Patreon](https://img.shields.io/badge/Patreon-Support-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/c/unrealpatr/)
 
-| Platform            | Type                         | Link                                                                      |
-| ------------------- | ---------------------------- | ------------------------------------------------------------------------- |
-| **Buy Me a Coffee** | One-time or monthly support  | [buymeacoffee.com/{{BMC_USERNAME}}](https://buymeacoffee.com/ashrafalnas) |
-| **Patreon**         | Recurring monthly membership | [patreon.com/{{PATREON_USERNAME}}](https://www.patreon.com/c/unrealpatr/) |
+| Platform            | Type                         | Link                                                                 |
+| ------------------- | ---------------------------- | -------------------------------------------------------------------- |
+| **Buy Me a Coffee** | One-time or monthly support  | [buymeacoffee.com/ashrafalnas](https://buymeacoffee.com/ashrafalnas) |
+| **Patreon**         | Recurring monthly membership | [patreon.com/c/unrealpatr/](https://www.patreon.com/c/unrealpatr/)   |
 
 ---
 
