@@ -36,6 +36,8 @@ If you find this useful, consider supporting its development. Your contributions
 | **Buy Me a Coffee** | One-time or monthly support  | [buymeacoffee.com/{{BMC_USERNAME}}](https://buymeacoffee.com/ashrafalnas) |
 | **Patreon**         | Recurring monthly membership | [patreon.com/{{PATREON_USERNAME}}](https://www.patreon.com/c/unrealpatr/) |
 
+---
+
 ## Who it's for
 
 | User                                               | How to use it                                                                                    |
@@ -181,12 +183,11 @@ Custom domains are supported on all three hosts (free HTTPS included).
 
 ## Documentation Map
 
-| File                                 | Audience                     | Purpose                                            |
-| ------------------------------------ | ---------------------------- | -------------------------------------------------- |
-| [`README.md`](./README.md)           | Everyone                     | Overview (this file)                               |
-| [`plan.md`](./plan.md)               | Developers                   | Architectural decisions + implementation checklist |
-| [`guide.md`](./guide.md)             | Developers / content editors | Detailed customization instructions                |
-| [`deployclick.md`](./deployclick.md) | Non-technical users          | One-click deployment walkthrough                   |
+| File                                 | Audience                     | Purpose                             |
+| ------------------------------------ | ---------------------------- | ----------------------------------- |
+| [`README.md`](./README.md)           | Everyone                     | Overview (this file)                |
+| [`guide.md`](./guide.md)             | Developers / content editors | Detailed customization instructions |
+| [`deployclick.md`](./deployclick.md) | Non-technical users          | One-click deployment walkthrough    |
 
 ---
 
