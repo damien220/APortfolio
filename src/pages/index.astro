@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { getCollection } from 'astro:content';
+import { siteConfig } from '../siteConfig';
+
+const allProjects = await getCollection('projects');
+const featuredProjects = allProjects.filter((p) => p.data.featured);
+---
+
+<BaseLayout title={`${siteConfig.site.title} — Home`} description={siteConfig.site.description}>
+  <Hero
+    name={siteConfig.hero.name}
+    tagline={siteConfig.hero.tagline}
+    subtitle={siteConfig.hero.subtitle}
+  />
+
+  <section class="section container">
+    <h2 class="section-title">Featured Projects</h2>
+    {featuredProjects.length > 0 ? (
+      <>
+        <ProjectGrid projects={featuredProjects} />
+        <div class="view-all">
+          <a href="/projects" class="view-all-link">View all projects &rarr;</a>
+        </div>
+      </>
+    ) : (
+      <p class="empty-state">No featured projects yet. See <a href="/projects">all projects</a>.</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .view-all {
+    text-align: center;
+    margin-top: var(--space-xl);
+  }
+
+  .view-all-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .empty-state {
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--space-xl);
+  }
+</style>

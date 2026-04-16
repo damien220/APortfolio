@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Page Not Found">
+  <section class="section container not-found">
+    <p class="error-code">404</p>
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/" class="btn btn-primary">Go Home</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .error-code {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    color: var(--color-text-secondary);
+  }
+
+  .btn {
+    margin-top: var(--space-md);
+    display: inline-flex;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: white;
+  }
+</style>

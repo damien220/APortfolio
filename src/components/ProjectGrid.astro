@@ -1,0 +1,115 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+interface Project {
+  id: string;
+  data: {
+    title: string;
+    description: string;
+    type: string;
+    tags: string[];
+    image?: string;
+    featured?: boolean;
+  };
+}
+
+interface Props {
+  projects: Project[];
+  showFilters?: boolean;
+}
+
+const { projects, showFilters = false } = Astro.props;
+const types = [...new Set(projects.map((p) => p.data.type))].sort();
+---
+
+<section class="project-grid-section">
+  {showFilters && (
+    <div class="filters" id="project-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      {types.map((type) => (
+        <button class="filter-btn" data-filter={type}>{type}</button>
+      ))}
+    </div>
+  )}
+  <div class="project-grid" id="project-grid">
+    {projects.map((project, i) => (
+      <div class="grid-item fade-in" data-type={project.data.type} style={`animation-delay: ${i * 60}ms`}>
+        <ProjectCard
+          slug={project.id}
+          title={project.data.title}
+          description={project.data.description}
+          type={project.data.type}
+          tags={project.data.tags}
+          image={project.data.image}
+          featured={project.data.featured}
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
+{showFilters && (
+  <script is:inline>
+    document.getElementById('project-filters')?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.grid-item').forEach((item) => {
+        if (filter === 'all' || item.dataset.type === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  </script>
+)}
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-sans);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .filter-btn.active {
+    background-color: var(--color-filter-active-bg);
+    color: var(--color-filter-active-text);
+    border-color: var(--color-filter-active-bg);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  @media (max-width: 640px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

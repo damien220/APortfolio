@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../siteConfig';
+
+const { bio, skills } = siteConfig.about;
+---
+
+<BaseLayout title={`About — ${siteConfig.site.title}`} description="Learn more about me and my background.">
+  <section class="section container about">
+    <h1 class="section-title">About Me</h1>
+    <div class="about-content">
+      <p>{bio}</p>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        {skills.map((cat) => (
+          <div class="skill-category">
+            <h3>{cat.title}</h3>
+            <ul>
+              {cat.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    max-width: 800px;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-2xl);
+    white-space: pre-line;
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .skill-category h3 {
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .skill-category ul {
+    list-style: none;
+  }
+
+  .skill-category li {
+    padding: var(--space-xs) 0;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  subtitle?: string;
+}
+
+const { name, tagline, subtitle } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-greeting">Hi, I'm</p>
+    <h1 class="hero-name">{name}</h1>
+    <p class="hero-tagline">{tagline}</p>
+    {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+    <div class="hero-actions">
+      <a href="/projects" class="btn btn-primary">View Projects</a>
+      <a href="/contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-3xl) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-greeting {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    max-width: 550px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: white;
+  }
+
+  .btn-outline {
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+</style>
