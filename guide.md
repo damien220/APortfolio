@@ -81,7 +81,11 @@ Remove entries you don't use — the footer renders whatever is in the array.
 
 ## Step 3 — Set Up the Contact Form
 
-The contact form sends messages via [Formspree](https://formspree.io/) (free tier: 50 messages/month, no backend required).
+The portfolio is a static site — there's no backend server to send emails. The contact form needs a third-party form service to receive submissions and forward them to your email inbox. Direct email (`mailto:` links) won't work reliably: many desktop users don't have a mail client configured, it abandons the form UX, and mobile behavior is inconsistent.
+
+### Default: Formspree (recommended)
+
+The contact form is pre-wired for [Formspree](https://formspree.io/) (free tier: 50 messages/month).
 
 1. Sign up at https://formspree.io
 2. Create a new form and copy your form ID (looks like `xabcdefg`)
@@ -95,6 +99,19 @@ contact: {
 ```
 
 Done — the form will now deliver to your email.
+
+### Alternative form services
+
+Any of these work with a static site. To switch, you'll need to update the form `action` URL in `src/pages/contact.astro` instead of using the `formspreeId` config field.
+
+| Service | Free Tier | Setup Complexity | Notes |
+|---|---|---|---|
+| **[Formspree](https://formspree.io/)** | 50/month | Simplest — one form ID | Most established, widely used for static sites |
+| **[EmailJS](https://www.emailjs.com/)** | 200/month | Moderate — configure email service + template | Sends from your own email address (looks more professional) |
+| **[Netlify Forms](https://www.netlify.com/products/forms/)** | 100/month | Zero config if on Netlify | Only works when hosted on Netlify |
+| **[Web3Forms](https://web3forms.com/)** | 250/month | Simple — one access key | No signup required for basic use, largest free tier |
+
+**Recommendation:** Formspree for simplicity, EmailJS if you want a larger free tier and sending from your own email address.
 
 ---
 
