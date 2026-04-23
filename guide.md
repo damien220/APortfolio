@@ -12,7 +12,9 @@ in **`src/siteConfig.ts`** and **`src/content/projects/*.md`**.
 | Bio on about page | `src/siteConfig.ts` → `about.bio` |
 | Skills list | `src/siteConfig.ts` → `about.skills` |
 | Contact form intro + Formspree ID | `src/siteConfig.ts` → `contact` |
+| Portrait photo on home page | `src/siteConfig.ts` → `hero.portrait` |
 | GitHub / LinkedIn / Twitter links | `src/siteConfig.ts` → `social` |
+| Donation links (Patreon, Buy Me a Coffee) | `src/siteConfig.ts` → `donations` |
 | Site title (shown in tab + footer + navbar) | `src/siteConfig.ts` → `site.title` |
 | Site URL (for SEO / sitemaps) | `src/siteConfig.ts` → `site.url` + `astro.config.mjs` → `site` |
 | Nav menu items | `src/siteConfig.ts` → `nav` |
@@ -60,7 +62,30 @@ You can add or remove categories freely — the grid adjusts automatically.
 
 ---
 
-## Step 2 — Update Social Links
+## Step 2 — Add a Portrait Photo
+
+The hero section shows a circular portrait to the left of your name. If no image is set, it falls back to an initials placeholder automatically.
+
+1. Drop your photo into `public/images/` — e.g. `public/images/portrait.jpg`
+2. Open `src/siteConfig.ts` and set the `portrait` field:
+
+```ts
+hero: {
+  name: 'Your Name',
+  tagline: '...',
+  portrait: '/images/portrait.jpg',  // ← path relative to public/
+},
+```
+
+**Tips:**
+- Square images work best (the circle crop is 1:1)
+- Recommended size: **400×400 px** or larger
+- Use `.webp` or `.jpg` for smallest file size
+- Leave `portrait: ""` to keep the styled initials placeholder
+
+---
+
+## Step 3 — Update Social Links
 
 Edit the `social` array in `src/siteConfig.ts`:
 
@@ -77,9 +102,25 @@ Available `icon` values: `github`, `linkedin`, `twitter`, `email`, `website`.
 
 Remove entries you don't use — the footer renders whatever is in the array.
 
+### Add Donation Links
+
+Donation links appear in the footer after a divider, separate from social icons.
+Edit the `donations` array in `src/siteConfig.ts`:
+
+```ts
+donations: [
+  { label: 'Buy Me a Coffee', url: 'https://buymeacoffee.com/yourname', icon: 'buymeacoffee' },
+  { label: 'Patreon',         url: 'https://patreon.com/yourname',      icon: 'patreon' },
+],
+```
+
+Available `icon` values: `patreon`, `buymeacoffee`.
+
+Set `donations: []` to hide the section entirely.
+
 ---
 
-## Step 3 — Set Up the Contact Form
+## Step 4 — Set Up the Contact Form
 
 The portfolio is a static site — there's no backend server to send emails. The contact form needs a third-party form service to receive submissions and forward them to your email inbox. Direct email (`mailto:` links) won't work reliably: many desktop users don't have a mail client configured, it abandons the form UX, and mobile behavior is inconsistent.
 
@@ -115,7 +156,7 @@ Any of these work with a static site. To switch, you'll need to update the form 
 
 ---
 
-## Step 4 — Add a New Project
+## Step 5 — Add a New Project
 
 Each project is a single Markdown file in `src/content/projects/`. The filename (without `.md`) becomes the URL slug — e.g. `my-cool-app.md` → `/projects/my-cool-app`.
 
@@ -178,7 +219,7 @@ Then restart the dev server.
 
 ---
 
-## Step 5 — Add Project Images / Screenshots
+## Step 6 — Add Project Images / Screenshots
 
 1. Create a folder: `public/images/`
 2. Drop your screenshot in: `public/images/my-app.png`
@@ -201,7 +242,7 @@ image: "/images/my-app.png"
 
 ---
 
-## Step 6 — Update Site Metadata
+## Step 7 — Update Site Metadata
 
 Two places need updating when you buy a domain:
 
@@ -226,7 +267,7 @@ export default defineConfig({
 
 ---
 
-## Step 7 — Custom Navigation
+## Step 8 — Custom Navigation
 
 To add or remove menu items, edit `src/siteConfig.ts`:
 

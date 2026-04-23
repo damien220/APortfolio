@@ -11,6 +11,12 @@ export interface SocialLink {
   icon: 'github' | 'linkedin' | 'twitter' | 'email' | 'website';
 }
 
+export interface DonationLink {
+  label: string;
+  url: string;
+  icon: 'patreon' | 'buymeacoffee';
+}
+
 export interface SkillCategory {
   title: string;
   items: string[];
@@ -29,6 +35,10 @@ export const siteConfig = {
     name: 'Your Name',
     tagline: 'Building things that make a difference.',
     subtitle: 'Developer passionate about clean code, thoughtful design, and solving real problems.',
+    // Path to portrait image, e.g. "/images/portrait.jpg"
+    // Drop the file in public/images/ and update this path.
+    // Leave empty ("") to show an initials placeholder instead.
+    portrait: '',
   },
 
   // ---- About page ----
@@ -64,6 +74,14 @@ and what you're looking for.`,
     { label: 'GitHub', url: 'https://github.com/yourusername', icon: 'github' },
     { label: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'linkedin' },
   ] as SocialLink[],
+
+  // ---- Donation links (shown in footer, after social icons) ----
+  // Supported icons: "patreon", "buymeacoffee"
+  // Remove entries you don't use — set to [] to hide the section entirely.
+  donations: [
+    { label: 'Buy Me a Coffee', url: 'https://buymeacoffee.com/yourusername', icon: 'buymeacoffee' },
+    { label: 'Patreon', url: 'https://patreon.com/yourusername', icon: 'patreon' },
+  ] as DonationLink[],
 
   // ---- Navigation links ----
   nav: [

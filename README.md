@@ -56,7 +56,9 @@ If you find this useful, consider supporting its development. Your contributions
 - **Dark / light mode** with system preference detection + manual toggle
 - **Mobile-responsive** layout with adaptive typography
 - **Contact form** powered by Formspree (no backend needed)
+- **Portrait photo** in the hero section — circular image or auto-generated initials placeholder
 - **Social links** in the footer (GitHub, LinkedIn, Twitter, Email, Website)
+- **Donation links** in the footer (Patreon, Buy Me a Coffee) — toggled via config
 - **Accessible**: semantic HTML, `prefers-reduced-motion` support, ARIA labels
 - **404 page** styled to match the rest of the site
 
@@ -160,6 +162,8 @@ domain — see [`guide.md`](./guide.md).
 | What                  | Where                                                |
 | --------------------- | ---------------------------------------------------- |
 | Your name and tagline | `src/siteConfig.ts` → `hero`                         |
+| Portrait photo        | `src/siteConfig.ts` → `hero.portrait`               |
+| Donation links        | `src/siteConfig.ts` → `donations`                   |
 | Your bio              | `src/siteConfig.ts` → `about.bio`                    |
 | Your skills           | `src/siteConfig.ts` → `about.skills`                 |
 | Social links          | `src/siteConfig.ts` → `social`                       |
