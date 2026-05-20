@@ -1,5 +1,6 @@
 # APortfolio
 
+![APortfolio](APortfolio-logo.png)
 A fast, customizable, static portfolio website built with Astro. Designed to
 showcase personal projects with minimal setup and zero ongoing hosting cost.
 
@@ -162,8 +163,8 @@ domain — see [`guide.md`](./guide.md).
 | What                  | Where                                                |
 | --------------------- | ---------------------------------------------------- |
 | Your name and tagline | `src/siteConfig.ts` → `hero`                         |
-| Portrait photo        | `src/siteConfig.ts` → `hero.portrait`               |
-| Donation links        | `src/siteConfig.ts` → `donations`                   |
+| Portrait photo        | `src/siteConfig.ts` → `hero.portrait`                |
+| Donation links        | `src/siteConfig.ts` → `donations`                    |
 | Your bio              | `src/siteConfig.ts` → `about.bio`                    |
 | Your skills           | `src/siteConfig.ts` → `about.skills`                 |
 | Social links          | `src/siteConfig.ts` → `social`                       |
